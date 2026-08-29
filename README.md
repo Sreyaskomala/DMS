@@ -13,7 +13,7 @@
 ## 🌟 Overview
 
 **Insulin Inside** is a full-stack digital health management platform designed specifically for India's diabetes care ecosystem. It addresses two critical national challenges:
-1. **High Chronic Medication Costs & Cold-Chain Integrity**: Bringing down diabetes medication costs by 20% to 80% through transparent price comparison against corporate e-pharmacy monopolies (Apollo, 1mg, Medplus), while connecting patients directly with verified neighborhood chemist counters and government Pradhan Mantri Jan Aushadhi (PMBJP) Kendras.
+1. **High Chronic Medication Costs & Cold-Chain Integrity**: Bringing down diabetes medication costs by 20% to 80% through transparent price comparison against standard market retail prices (MRP), while connecting patients directly with verified neighborhood chemist counters and government Pradhan Mantri Jan Aushadhi (PMBJP) Kendras.
 2. **Daily Practical Diabetes Buddy**: Providing an intuitive daily logging interface for blood glucose, medication/insulin adherence schedules, smart refill prediction, Indian carbohydrate exchanges, and 1-click **Doctor-Ready Clinical Summary PDF Reports** for endocrinologist visits.
 
 ---
@@ -21,7 +21,7 @@
 ## 🚀 Key Modules & Capabilities
 
 ### 1. 🔍 Find My Medicine & Price Reducer Engine (`/marketplace`)
-- **Beating Corporate Monopolies**: Side-by-side pricing comparing corporate MRPs, neighborhood chemist partner rates, and government Jan Aushadhi generic alternatives.
+- **Transparent Price Comparison**: Side-by-side pricing comparing standard market MRPs, neighborhood chemist partner rates, and government Jan Aushadhi generic alternatives.
 - **50+ Master Diabetes Items**:
   - *Basal Insulins*: Lantus SoloStar, Basaglar, Toujeo, Tresiba.
   - *Bolus Insulins*: NovoRapid, Humalog, Actrapid HM, Fiasp.

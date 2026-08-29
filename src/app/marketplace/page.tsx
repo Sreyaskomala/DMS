@@ -147,7 +147,7 @@ export default function MarketplacePage() {
         setIsReserveModalOpen(false);
         setIsSuccessModalOpen(true);
         toast.success(`Medicine reserved at ${selectedPharmacy.name}!`, {
-            description: `Held for 4 hours. You saved ₹${savings} vs corporate chain prices.`
+            description: `Held for 4 hours. You saved ₹${savings} compared to standard market MRP.`
         });
     };
 
@@ -182,14 +182,14 @@ export default function MarketplacePage() {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl mx-auto text-center space-y-4">
                         <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300 font-bold px-3 py-1 text-xs uppercase tracking-wider">
-                            Empowering Local Chemists • Zero Monopoly Markup
+                            Empowering Local Chemists • Transparent Affordable Pricing
                         </Badge>
                         <h1 className="text-3xl sm:text-5xl font-black text-[#003E7E] tracking-tight">
                             Find My Diabetes Medicine <br />
                             <span className="text-[#009CDF]">At Verified Local Pharmacies</span>
                         </h1>
                         <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                            Stop overpaying at corporate giants like 1mg, Medplus and Apollo. Check live stock at your neighbourhood chemist, compare Jan Aushadhi generic prices, and reserve with 100% cold-chain guarantee.
+                            Find affordable diabetes medicines, check live inventory at trusted neighborhood chemists, compare Jan Aushadhi generic alternatives, and reserve with a 100% cold-chain guarantee.
                         </p>
 
                         {/* Search and Locality Bar */}
@@ -238,7 +238,7 @@ export default function MarketplacePage() {
                             <div className="bg-white/80 p-3 rounded-xl border border-slate-200 shadow-sm">
                                 <div className="text-xs text-slate-500 font-medium">Avg. Patient Savings</div>
                                 <div className="text-xl font-black text-emerald-600">20% – 85%</div>
-                                <div className="text-[10px] text-slate-400">vs Corporate Giant MRP</div>
+                                <div className="text-[10px] text-slate-400">vs Standard Market MRP</div>
                             </div>
                             <div className="bg-white/80 p-3 rounded-xl border border-slate-200 shadow-sm">
                                 <div className="text-xs text-slate-500 font-medium">Jan Aushadhi Insulin</div>
@@ -354,7 +354,7 @@ export default function MarketplacePage() {
                                                     {/* Price Comparison Block */}
                                                     <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-1.5">
                                                         <div className="flex justify-between items-center text-xs">
-                                                            <span className="text-slate-400 line-through">Corporate Giant MRP: ₹{med.corporateGiantMrp}</span>
+                                                            <span className="text-slate-400 line-through">Standard MRP: ₹{med.corporateGiantMrp}</span>
                                                             <span className="text-emerald-700 font-bold text-[11px] bg-emerald-50 px-1.5 py-0.5 rounded">
                                                                 Save ₹{savingsAmount}
                                                             </span>
@@ -488,7 +488,7 @@ export default function MarketplacePage() {
                                 Are you a Hyderabad Chemist?
                             </div>
                             <p className="text-blue-100 leading-relaxed">
-                                Join our network to receive direct digital reservation requests from diabetic patients in your locality. Protect your neighborhood pharmacy business against corporate monopolies.
+                                Join our network to receive direct digital reservation requests from diabetic patients in your locality and grow your independent pharmacy footfall.
                             </p>
                             <Button size="sm" className="w-full bg-[#009CDF] hover:bg-[#007bb5] text-white font-bold" asChild>
                                 <Link href="/pharmacy-portal">Open Pharmacy Portal &amp; Register</Link>
@@ -742,7 +742,7 @@ export default function MarketplacePage() {
                                 <span className="text-[#003E7E]">₹{activeReservation.totalAmount}</span>
                             </div>
                             <div className="text-emerald-700 font-semibold text-[11px] bg-emerald-50 p-1.5 rounded text-center">
-                                🎉 You saved ₹{activeReservation.savingsVersusCorporate} compared to Apollo/1mg!
+                                🎉 You saved ₹{activeReservation.savingsVersusCorporate} compared to standard market MRP!
                             </div>
                         </div>
                     )}

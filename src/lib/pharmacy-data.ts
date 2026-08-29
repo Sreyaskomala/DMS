@@ -35,7 +35,7 @@ export interface MedicineProduct {
     prescriptionClass: PrescriptionClass;
     requiresColdChain: boolean;
     storageTemp: string;
-    corporateGiantMrp: number; // e.g. Apollo / 1mg standard price
+    corporateGiantMrp: number; // Standard market MRP
     localPartnerPrice: number; // Discounted neighborhood chemist price
     janAushadhiAlt?: JanAushadhiAlternative;
     popularIndication: string;

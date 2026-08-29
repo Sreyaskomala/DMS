@@ -23,7 +23,7 @@ export default function AboutPage() {
                         <span className="text-cyan-300">&amp; Local Neighbourhood Pharmacies</span>
                     </h1>
                     <p className="text-base sm:text-lg text-blue-100 leading-relaxed font-medium">
-                        Insulin Inside is building India&apos;s most transparent diabetes care and local medicine access platform — bringing down chronic healthcare costs without corporate middleman markups.
+                        Insulin Inside is building India&apos;s most transparent diabetes care and local medicine access platform — making chronic healthcare affordable while strengthening neighbourhood pharmacies.
                     </p>
                 </div>
             </section>
@@ -41,9 +41,9 @@ export default function AboutPage() {
                             <div className="w-12 h-12 bg-red-100 text-red-700 rounded-2xl flex items-center justify-center font-black">
                                 <Heart className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900">1. Breaking the High Cost of Diabetes Care</h3>
+                            <h3 className="text-xl font-bold text-slate-900">1. Making Chronic Diabetes Care Affordable</h3>
                             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                Diabetes is a chronic, lifelong condition. Indian families spend thousands every month on basal/bolus insulins, GLP-1s, oral medications, and test strips. Corporate monopolies charge high markups and push costly subscription lock-ins. We bring costs down by 20% to 80% through direct local chemist partnerships and Jan Aushadhi generic equivalents.
+                                Diabetes is a lifelong condition requiring continuous therapy. Indian families often face steep out-of-pocket costs for insulins, oral medications, and test supplies. We help bring costs down by 20% to 80% by connecting patients directly with trusted neighbourhood chemists and affordable Pradhan Mantri Jan Aushadhi generic alternatives.
                             </p>
                         </div>
 
@@ -51,9 +51,9 @@ export default function AboutPage() {
                             <div className="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center font-black">
                                 <Store className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900">2. Saving Independent Local Chemists</h3>
+                            <h3 className="text-xl font-bold text-slate-900">2. Empowering Independent Local Chemists</h3>
                             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                Independent neighbourhood pharmacies across India are being crushed by corporate e-pharmacy giants (1mg, Apollo, Medplus). We provide local verified retail chemists with a digital storefront, live patient reservation requests, and demand intelligence so they can thrive and serve their communities.
+                                Independent retail chemists are the backbone of healthcare in every Indian locality. We empower verified local pharmacies with a digital discovery storefront, real-time patient reservation requests, and local demand intelligence so they can thrive, retain their loyal community, and deliver exceptional personal care.
                             </p>
                         </div>
                     </div>

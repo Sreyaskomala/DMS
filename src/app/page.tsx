@@ -50,7 +50,7 @@ export default function Home() {
                             </h1>
 
                             <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
-                                Track glucose, insulin, and Indian meals effortlessly. Find genuine medicines from verified neighbourhood pharmacies across Hyderabad with 100% cold-chain assurance and zero monopoly markups.
+                                Track glucose, insulin, and Indian meals effortlessly. Find genuine medicines from verified neighbourhood pharmacies across Hyderabad with 100% cold-chain assurance and transparent neighbourhood pricing.
                             </p>
 
                             {/* Hero Interactive Search Bar */}
@@ -269,7 +269,7 @@ export default function Home() {
                                     Verified Hyderabad Chemist Network
                                 </h2>
                                 <p className="text-xs sm:text-sm text-slate-500">
-                                    Supporting independent medical stores against corporate e-pharmacy monopolies.
+                                    Empowering independent neighbourhood pharmacies with digital discovery and live demand intelligence.
                                 </p>
                             </div>
                             <Button asChild variant="outline" className="border-[#003E7E] text-[#003E7E] font-bold text-xs">

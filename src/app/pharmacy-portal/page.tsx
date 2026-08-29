@@ -484,7 +484,7 @@ export default function PharmacyPortalPage() {
                                 <h3 className="text-xl font-bold">Hyderabad Diabetes Demand Radar</h3>
                             </div>
                             <p className="text-xs text-blue-200 max-w-2xl leading-relaxed">
-                                Real-time search intelligence from patients within a 5km radius of {selectedPharmacy.locality}. Stock up on these high-demand items to win customer loyalty back from 1mg and Apollo.
+                                Real-time search intelligence from patients within a 5km radius of {selectedPharmacy.locality}. Stock up on these high-demand items to meet neighbourhood patient demand and grow your store footfall.
                             </p>
                         </div>
 
@@ -613,7 +613,7 @@ export default function PharmacyPortalPage() {
                         <FileText className="h-14 w-14 text-[#003E7E] mx-auto" />
                         <div className="font-bold text-slate-800 text-sm">{selectedRxDoc}</div>
                         <p className="text-xs text-slate-500">
-                            Dr. P. R. Reddy, MD (Endocrinology) · Apollo Sugar Clinics / Nizam&apos;s Institute
+                            Dr. P. R. Reddy, MD (Endocrinology) · Regional Diabetes Specialist / Senior Consultant
                         </p>
                         <Badge className="bg-emerald-100 text-emerald-800 font-bold text-xs">
                             Prescription Valid (30-Day Refill Active)
