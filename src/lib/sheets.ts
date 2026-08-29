@@ -10,7 +10,7 @@ export async function appendToSheet(
     accessToken: string,
     spreadsheetId: string,
     range: string,
-    values: any[][]
+    values: (string | number | boolean | null | undefined)[][]
 ) {
     const sheets = await getSheetsClient(accessToken);
     try {

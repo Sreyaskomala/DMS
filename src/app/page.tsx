@@ -1,188 +1,321 @@
+"use client"
+
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
-  Activity, BookOpen, Globe, Heart, Megaphone, Search, ChevronRight,
-  Users, Calendar, PlayCircle, ArrowUpRight, FileText
+    Activity, BookOpen, Heart, Search, ChevronRight,
+    Users, MapPin, Store, Snowflake,
+    CheckCircle2, Sparkles, FileText
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { IndiaMapSection } from "@/components/india-map-section";
+import { HYDERABAD_PHARMACIES } from "@/lib/pharmacy-data";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col min-h-screen bg-white text-slate-900 font-sans">
+    const [heroSearch, setHeroSearch] = useState("");
 
-      <main className="flex-1">
-
-        {/* 3. HERO SECTION - Overlapping Blue Gradient */}
-        <section className="relative bg-gradient-to-br from-[#F0F7FF] via-white to-white min-h-[600px] flex items-center overflow-hidden pb-32">
-          {/* Background Abstract Shape */}
-          <div className="absolute top-0 right-0 w-[60%] h-full bg-[#EAF6FF] rounded-bl-[200px] z-0 opacity-50 hidden lg:block"></div>
-
-          <div className="container mx-auto px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-16 items-center py-20">
-            <div className="space-y-8 animate-in slide-in-from-left duration-700">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-[#003E7E] text-xs font-bold uppercase tracking-wider">
-                <span className="w-2 h-2 rounded-full bg-[#009CDF] animate-pulse"></span>
-                Trusted by 1 Million+ Indians
-              </div>
-              <h1 className="text-5xl lg:text-7xl font-extrabold text-[#003E7E] leading-[1.05]">
-                Uniting <span className="text-[#009CDF]">India</span> <br />
-                to fight diabetes.
-              </h1>
-              <p className="text-xl text-slate-600 max-w-lg leading-relaxed font-medium">
-                We are a national network of patients, doctors, and caregivers. Get access to affordable medication, smart tracking, and expert care.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button size="lg" className="rounded-full bg-[#003E7E] hover:bg-[#002a5e] h-14 px-10 text-base font-bold shadow-xl shadow-blue-900/10" asChild>
-                  <Link href="/dashboard">Start Your Journey</Link>
-                </Button>
-                <Button size="lg" variant="ghost" className="rounded-full text-[#003E7E] font-bold hover:bg-blue-50 h-14 px-8 flex gap-2 border-2 border-transparent hover:border-blue-100">
-                  Download Annual Report <ArrowUpRight className="h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-
-            <div className="relative animate-in slide-in-from-right duration-700 delay-200">
-              {/* Circular image mask effect characteristic of IDF */}
-              <div className="relative z-10 w-full aspect-square max-w-md mx-auto lg:max-w-full rounded-full border-[16px] border-white shadow-2xl overflow-hidden bg-slate-200">
-                <img
-                  src="/hero-generated.png"
-                  className="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000"
-                  alt="Compassionate Diabetes Care in India"
-                />
-              </div>
-              {/* Floating Badge */}
-              <div className="absolute top-10 right-10 z-20 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3 animate-bounce duration-[3000ms]">
-                <Heart className="h-6 w-6 text-red-500 fill-red-500" />
-                <div>
-                  <p className="text-xs text-slate-400 font-bold uppercase">Lives Impacted</p>
-                  <p className="text-xl font-black text-[#003E7E]">1,240,593</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Blue Banner Strip */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-[#003E7E] flex items-center justify-center text-white z-20">
-            <div className="container mx-auto flex justify-between items-center text-xs sm:text-sm font-bold tracking-widest uppercase opacity-80 px-6">
-              <span className="hidden sm:inline">Advocacy • Action • Awareness</span>
-              <span className="flex items-center gap-2"> The Voice of Diabetes in India <Globe className="h-4 w-4" /></span>
-              <span className="hidden sm:inline">Est. 2026</span>
-            </div>
-          </div>
-        </section>
-
-        {/* 4. THREE PILLARS - Cards overlapping */}
-        {/* Adjusted to remove negative margin overlap that was covering text */}
-        <section className="bg-slate-50 relative pb-24 pt-16">
-          <div className="container mx-auto px-6 relative z-30 grid md:grid-cols-3 gap-8 text-left">
-            {[
-              { icon: <Users className="h-8 w-8" />, title: "Community", text: "Join support groups in your city and share your lived experience.", color: "text-[#009CDF]", bg: "bg-blue-50" },
-              { icon: <Activity className="h-8 w-8" />, title: "Management", text: "World-class tools to track glucose, insulin, and diet patterns.", color: "text-[#E31C79]", bg: "bg-pink-50" },
-              { icon: <BookOpen className="h-8 w-8" />, title: "Education", text: "Certified courses on carb counting and diabetes management.", color: "text-[#FDB913]", bg: "bg-yellow-50" }
-            ].map((item, i) => (
-              <div key={i} className="group bg-white p-8 rounded-2xl shadow-xl border border-slate-100 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-full -mr-10 -mt-10 transition-colors group-hover:bg-slate-100"></div>
-                <div className={`relative w-16 h-16 rounded-2xl ${item.bg} flex items-center justify-center mb-6 ${item.color}`}>
-                  {item.icon}
-                </div>
-                <h3 className="relative text-2xl font-bold text-[#003E7E] mb-3 group-hover:text-[#009CDF] transition-colors">{item.title}</h3>
-                <p className="relative text-slate-600 leading-relaxed font-medium">{item.text}</p>
-                <div className="relative mt-6 flex items-center text-sm font-bold text-[#003E7E] group-hover:gap-2 transition-all cursor-pointer">
-                  Learn More <ChevronRight className="h-4 w-4 ml-1" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* 5. INDIA MAP ATLAS */}
-          <IndiaMapSection />
-
-          {/* 6. IN FOCUS - Featured Report */}
-          <div className="container mx-auto px-6 mt-12 bg-white">
-            <div className="flex items-center gap-4 mb-10">
-              <h2 className="text-3xl font-bold text-[#003E7E]">In Focus</h2>
-              <div className="h-1 flex-1 bg-slate-200 rounded-full overflow-hidden">
-                <div className="w-1/6 h-full bg-[#E31C79]"></div>
-              </div>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl bg-white">
-              <div className="p-12 lg:p-16 flex flex-col justify-center items-start space-y-8">
-                <Badge className="bg-[#E31C79] hover:bg-[#c21565] text-white border-none rounded-md px-4 py-1.5 text-xs font-bold tracking-wider">NEW RESEARCH</Badge>
-                <h3 className="text-4xl lg:text-5xl font-bold text-[#003E7E] leading-tight">
-                  Indian Diabetes <br /> Atlas 2026
-                </h3>
-                <p className="text-slate-600 text-lg font-medium leading-relaxed">
-                  New data reveals the impact of urbanization on diabetes rates in India. Download the full report to understand the regional breakdown.
-                </p>
-                <div className="flex gap-4 w-full sm:w-auto">
-                  <Button className="flex-1 sm:flex-none rounded-full bg-[#003E7E] hover:bg-[#002a5e] h-12 px-8 font-bold">Download PDF</Button>
-                  <Button variant="outline" className="flex-1 sm:flex-none rounded-full border-[#003E7E] text-[#003E7E] h-12 px-8 font-bold hover:bg-blue-50">View Interactive Map</Button>
-                </div>
-              </div>
-              <div className="bg-slate-200 min-h-[400px] relative">
-                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" className="w-full h-full object-cover" alt="Report Cover" />
-                <div className="absolute inset-0 bg-[#003E7E]/10 mix-blend-multiply"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 6. LATEST RESOURCES GRID */}
-        <section className="py-24 bg-white">
-          <div className="container px-6">
-            <div className="flex justify-between items-end mb-12">
-              <div>
-                <h2 className="text-3xl font-bold text-[#003E7E] mb-2">Latest Resources</h2>
-                <p className="text-slate-500 font-medium">Tools and guides for better management</p>
-              </div>
-              <Button variant="link" className="text-[#009CDF] font-bold">View All Resources</Button>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { tag: "Guide", title: "Indian Carb Exchange List", img: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=500&q=80" },
-                { tag: "Tool", title: "Insulin Dose Calculator", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" },
-                { tag: "Video", title: "Yoga for Glycemic Control", img: "https://images.unsplash.com/photo-1544367563-12123d896889?auto=format&fit=crop&w=500&q=80" },
-                { tag: "Event", title: "National Diabetes Summit", img: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=500&q=80" }
-              ].map((item, i) => (
-                <div key={i} className="group cursor-pointer">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 scroll-pl-6">
-                    <img src={item.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={item.title} />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-[#003E7E] text-[10px] font-bold px-3 py-1 rounded-md uppercase tracking-wide">
-                      {item.tag}
+    return (
+        <div className="flex flex-col min-h-screen bg-white text-slate-900 font-sans">
+            <main className="flex-1">
+                {/* 1. TOP ANNOUNCEMENT BANNER */}
+                <div className="bg-[#003E7E] text-white py-2 px-4 text-xs font-semibold">
+                    <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+                        <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span><strong>Hyderabad Pilot Live:</strong> Empowering neighbourhood chemists &amp; bringing down chronic diabetes medicine costs.</span>
+                        </div>
+                        <div className="flex items-center gap-3 font-bold text-blue-200">
+                            <Link href="/pharmacy-portal" className="text-white hover:text-[#009CDF] underline">
+                                For Hyderabad Chemists →
+                            </Link>
+                        </div>
                     </div>
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-800 leading-snug group-hover:text-[#009CDF] transition-colors">
-                    {item.title}
-                  </h3>
-                  <div className="mt-2 w-8 h-1 bg-slate-200 group-hover:bg-[#E31C79] transition-colors rounded-full"></div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* 7. CTA STRIP - "Join the Community" */}
-        <section className="py-20 bg-[#003E7E] text-white text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-          <div className="container mx-auto px-6 relative z-10 space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-black tracking-tight">Ready to take control?</h2>
-            <p className="text-blue-200 text-lg max-w-2xl mx-auto">
-              Join India's largest digital health platform today. Verified by doctors, loved by patients.
-            </p>
-            <div className="flex justify-center gap-4">
-              <Button size="lg" className="bg-[#E31C79] hover:bg-[#c21565] rounded-full h-14 px-10 text-lg font-bold shadow-xl" asChild>
-                <Link href="/dashboard">Create Free Account</Link>
-              </Button>
-            </div>
-            <p className="text-xs text-blue-300 font-medium opacity-70 mt-6">
-              *Always consult your physician before changing medication.
-            </p>
-          </div>
-        </section>
+                {/* 2. HERO SECTION */}
+                <section className="relative bg-gradient-to-br from-[#F0F7FF] via-white to-blue-50/40 min-h-[620px] flex items-center overflow-hidden pb-20 pt-12">
+                    <div className="absolute top-0 right-0 w-[55%] h-full bg-[#EAF6FF] rounded-bl-[180px] z-0 opacity-40 hidden lg:block"></div>
 
-      </main>
-    </div>
-  );
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+                        {/* Left Hero Content (7 cols) */}
+                        <div className="lg:col-span-7 space-y-6">
+                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 text-[#003E7E] text-xs font-bold uppercase tracking-wider">
+                                <Sparkles className="w-3.5 h-3.5 text-[#009CDF]" />
+                                India&apos;s Diabetes Buddy &amp; Local Chemist Network
+                            </div>
+
+                            <h1 className="text-4xl sm:text-6xl font-extrabold text-[#003E7E] leading-[1.08] tracking-tight">
+                                Your Diabetes. <br />
+                                <span className="text-[#009CDF]">One Place to Manage It.</span>
+                            </h1>
+
+                            <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
+                                Track glucose, insulin, and Indian meals effortlessly. Find genuine medicines from verified neighbourhood pharmacies across Hyderabad with 100% cold-chain assurance and zero monopoly markups.
+                            </p>
+
+                            {/* Hero Interactive Search Bar */}
+                            <div className="bg-white p-2 rounded-2xl shadow-xl border border-slate-200 max-w-xl flex items-center gap-2">
+                                <div className="flex items-center gap-2 px-3 flex-1">
+                                    <Search className="h-4 w-4 text-[#009CDF] shrink-0" />
+                                    <input
+                                        type="text"
+                                        value={heroSearch}
+                                        onChange={(e) => setHeroSearch(e.target.value)}
+                                        placeholder="Search Lantus, NovoRapid, Metformin, Accu-Chek..."
+                                        className="w-full bg-transparent text-xs sm:text-sm outline-none font-medium placeholder:text-slate-400"
+                                    />
+                                </div>
+                                <Button
+                                    asChild
+                                    className="bg-[#003E7E] hover:bg-[#002a5e] text-white font-bold text-xs h-10 px-5 rounded-xl shrink-0"
+                                >
+                                    <Link href={`/marketplace${heroSearch ? `?q=${encodeURIComponent(heroSearch)}` : ""}`}>
+                                        Find Medicine
+                                    </Link>
+                                </Button>
+                            </div>
+
+                            {/* Primary Action Buttons */}
+                            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                                <Button size="lg" className="rounded-2xl bg-[#003E7E] hover:bg-[#002a5e] h-13 px-8 text-sm font-bold shadow-xl shadow-blue-900/10" asChild>
+                                    <Link href="/dashboard">
+                                        <Activity className="h-4 w-4 mr-2 text-[#009CDF]" /> Start Tracking Free
+                                    </Link>
+                                </Button>
+                                <Button size="lg" variant="outline" className="rounded-2xl border-2 border-[#003E7E] text-[#003E7E] font-bold hover:bg-blue-50 h-13 px-6 text-sm flex gap-2" asChild>
+                                    <Link href="/marketplace">
+                                        <Store className="h-4 w-4" /> Hyderabad Chemist Network
+                                    </Link>
+                                </Button>
+                            </div>
+
+                            {/* Trust Signals */}
+                            <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-500 pt-2">
+                                <span className="flex items-center gap-1 text-emerald-700">
+                                    <CheckCircle2 className="h-3.5 w-3.5" /> Telangana DCA Compliant
+                                </span>
+                                <span>•</span>
+                                <span className="flex items-center gap-1 text-cyan-700">
+                                    <Snowflake className="h-3.5 w-3.5" /> 2°C - 8°C Cold-Chain Assured
+                                </span>
+                                <span>•</span>
+                                <span className="flex items-center gap-1 text-[#E31C79]">
+                                    <Heart className="h-3.5 w-3.5" /> Save 20% - 80% on Refills
+                                </span>
+                            </div>
+                        </div>
+
+                        {/* Right Hero Product Card Showcase (5 cols) */}
+                        <div className="lg:col-span-5 relative">
+                            <div className="bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 space-y-4 relative z-10">
+                                <div className="flex items-center justify-between border-b pb-3">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+                                        <span className="text-xs font-bold text-slate-800">Hyderabad Live Refill Hub</span>
+                                    </div>
+                                    <Badge className="bg-blue-50 text-[#003E7E] text-[10px] font-bold">
+                                        8 Chemists Active
+                                    </Badge>
+                                </div>
+
+                                {/* Sample Item Preview */}
+                                <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-2">
+                                    <div className="flex justify-between items-start">
+                                        <div>
+                                            <Badge className="bg-[#003E7E] text-white text-[10px]">Basal Insulin</Badge>
+                                            <h4 className="font-bold text-slate-900 text-sm mt-1">Lantus SoloStar Pen (100 IU/ml)</h4>
+                                            <p className="text-[11px] text-slate-500">In stock at Sri Balaji Medical (Banjara Hills)</p>
+                                        </div>
+                                        <div className="text-right">
+                                            <div className="text-[11px] text-slate-400 line-through">MRP ₹985</div>
+                                            <div className="text-lg font-black text-emerald-700">₹795</div>
+                                            <div className="text-[10px] text-emerald-600 font-bold">Save ₹190 (19%)</div>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center justify-between text-[11px] pt-1 text-slate-600 border-t">
+                                        <span className="flex items-center gap-1 text-cyan-700 font-medium">
+                                            <Snowflake className="h-3 w-3" /> Cold-Chain 3.8°C Monitored
+                                        </span>
+                                        <span className="font-bold text-[#003E7E]">Ready for 4h Hold</span>
+                                    </div>
+                                </div>
+
+                                {/* Jan Aushadhi Banner */}
+                                <div className="p-3 bg-amber-50/80 border border-amber-200 rounded-xl text-xs space-y-1">
+                                    <div className="flex items-center justify-between font-bold text-amber-900">
+                                        <span>PMBJP Jan Aushadhi Regular Insulin:</span>
+                                        <span className="text-emerald-700 font-black text-sm">₹140 / vial</span>
+                                    </div>
+                                    <p className="text-[11px] text-amber-800">
+                                        Available at Osmania Hospital Jan Aushadhi Kendra (83% cheaper than branded).
+                                    </p>
+                                </div>
+
+                                <Button asChild className="w-full bg-[#003E7E] hover:bg-[#002a5e] text-white font-bold text-xs h-10 rounded-xl">
+                                    <Link href="/marketplace">
+                                        Explore All 50+ Diabetes Medicines →
+                                    </Link>
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* 3. WHAT DO YOU NEED TODAY? QUICK ACTIONS */}
+                <section className="bg-slate-50 py-12 border-y border-slate-200">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center max-w-xl mx-auto mb-8 space-y-1">
+                            <h2 className="text-2xl font-bold text-[#003E7E]">What do you need today?</h2>
+                            <p className="text-xs sm:text-sm text-slate-500">Quick tools to manage your diabetes or find affordable supplies</p>
+                        </div>
+
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {[
+                                { title: "Log Glucose & Vitals", subtitle: "Record FBS, PBS, BP & Weight", icon: <Activity className="h-6 w-6" />, href: "/dashboard", color: "bg-blue-50 text-[#003E7E]" },
+                                { title: "Find Medicine & Save", subtitle: "Live stock at Hyd chemists", icon: <Store className="h-6 w-6" />, href: "/marketplace", color: "bg-emerald-50 text-emerald-800" },
+                                { title: "Doctor PDF Report", subtitle: "1-Click clinical summary", icon: <FileText className="h-6 w-6" />, href: "/dashboard", color: "bg-pink-50 text-[#E31C79]" },
+                                { title: "Indian Food Carb Guide", subtitle: "Roti, Rice, Dosa exchanges", icon: <BookOpen className="h-6 w-6" />, href: "/library", color: "bg-amber-50 text-amber-800" },
+                            ].map((item, i) => (
+                                <Link
+                                    key={i}
+                                    href={item.href}
+                                    className="bg-white p-5 rounded-2xl border border-slate-200/80 hover:shadow-lg hover:-translate-y-1 transition-all group"
+                                >
+                                    <div className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
+                                        {item.icon}
+                                    </div>
+                                    <h3 className="font-bold text-slate-900 text-sm group-hover:text-[#003E7E] transition-colors">{item.title}</h3>
+                                    <p className="text-xs text-slate-500 mt-1">{item.subtitle}</p>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* 4. THE FOUR PILLARS OF INSULIN INSIDE */}
+                <section className="py-20 bg-white">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
+                            <Badge className="bg-[#009CDF] text-white border-none font-bold text-xs uppercase tracking-wider">
+                                Comprehensive Diabetes Care
+                            </Badge>
+                            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#003E7E]">
+                                Everything You Need In One Platform
+                            </h2>
+                            <p className="text-slate-600 text-sm">
+                                Built specifically for Indian patients, caregivers, and neighbourhood pharmacies.
+                            </p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {[
+                                {
+                                    icon: <Activity className="h-6 w-6 text-[#009CDF]" />,
+                                    title: "1. Manage Daily",
+                                    desc: "Quick vitals logging (Glucose, Basal/Bolus insulin, Oral meds, BP, Weight) with smart refill prediction engine.",
+                                    linkText: "Open Tracker",
+                                    href: "/dashboard"
+                                },
+                                {
+                                    icon: <Store className="h-6 w-6 text-emerald-600" />,
+                                    title: "2. Access & Save",
+                                    desc: "Reserve medicines directly at verified neighbourhood chemists. Compare with Jan Aushadhi generic alternatives.",
+                                    linkText: "Find Medicine",
+                                    href: "/marketplace"
+                                },
+                                {
+                                    icon: <BookOpen className="h-6 w-6 text-[#E31C79]" />,
+                                    title: "3. Medically Reviewed",
+                                    desc: "Clinical guides for Indian diets (Roti/Rice glycemic loads, summer insulin storage, hypo emergency 15-15 rule).",
+                                    linkText: "Browse Library",
+                                    href: "/library"
+                                },
+                                {
+                                    icon: <Users className="h-6 w-6 text-amber-600" />,
+                                    title: "4. Peer Community",
+                                    desc: "Moderated peer discussions for Type 1, Type 2, and Parents. Hyderabad local chapter for local support.",
+                                    linkText: "Join Community",
+                                    href: "/community"
+                                },
+                            ].map((pillar, i) => (
+                                <div key={i} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                                    <div className="space-y-3">
+                                        <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center">
+                                            {pillar.icon}
+                                        </div>
+                                        <h3 className="text-lg font-bold text-[#003E7E]">{pillar.title}</h3>
+                                        <p className="text-xs text-slate-600 leading-relaxed">{pillar.desc}</p>
+                                    </div>
+                                    <div className="pt-6">
+                                        <Link href={pillar.href} className="text-xs font-bold text-[#003E7E] hover:text-[#009CDF] flex items-center gap-1">
+                                            {pillar.linkText} <ChevronRight className="h-3.5 w-3.5" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* 5. HYDERABAD PHARMACY SHOWCASE */}
+                <section className="py-16 bg-gradient-to-b from-blue-50/50 to-white border-t border-slate-200">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+                            <div>
+                                <Badge className="bg-emerald-100 text-emerald-800 border-none font-bold text-xs">
+                                    Local Business Empowerment
+                                </Badge>
+                                <h2 className="text-2xl sm:text-3xl font-bold text-[#003E7E] mt-1">
+                                    Verified Hyderabad Chemist Network
+                                </h2>
+                                <p className="text-xs sm:text-sm text-slate-500">
+                                    Supporting independent medical stores against corporate e-pharmacy monopolies.
+                                </p>
+                            </div>
+                            <Button asChild variant="outline" className="border-[#003E7E] text-[#003E7E] font-bold text-xs">
+                                <Link href="/marketplace">View All Localities →</Link>
+                            </Button>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {HYDERABAD_PHARMACIES.slice(0, 3).map((pharma) => (
+                                <div key={pharma.id} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-md space-y-3">
+                                    <div className="flex justify-between items-start">
+                                        <div>
+                                            <h3 className="font-bold text-slate-900 text-sm">{pharma.name}</h3>
+                                            <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+                                                <MapPin className="h-3 w-3 text-[#E31C79]" /> {pharma.locality}
+                                            </p>
+                                        </div>
+                                        <Badge className="bg-blue-100 text-[#003E7E] text-xs font-bold">
+                                            ★ {pharma.rating}
+                                        </Badge>
+                                    </div>
+
+                                    <div className="text-xs text-slate-600 bg-slate-50 p-2.5 rounded-xl space-y-1">
+                                        <div className="flex justify-between">
+                                            <span>Telangana DCA Lic:</span>
+                                            <strong className="font-mono text-slate-800">{pharma.dcaLicenceNo.slice(0, 15)}...</strong>
+                                        </div>
+                                        <div className="flex justify-between text-cyan-800 font-bold">
+                                            <span>Cold-Chain Status:</span>
+                                            <span>{pharma.coldChainTempCurrent} ✓</span>
+                                        </div>
+                                    </div>
+
+                                    <div className="text-[11px] text-emerald-800 font-medium bg-emerald-50 p-2 rounded-lg">
+                                        💡 {pharma.discountNote}
+                                    </div>
+
+                                    <Button asChild size="sm" className="w-full bg-[#003E7E] hover:bg-[#002a5e] text-white font-bold text-xs h-9">
+                                        <Link href="/marketplace">Check In-Store Stock</Link>
+                                    </Button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    );
 }

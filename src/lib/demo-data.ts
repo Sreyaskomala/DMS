@@ -516,7 +516,7 @@ export function getStoredLogs(): HealthLogRow[] {
         }
         const parsed = JSON.parse(stored);
         return Array.isArray(parsed) && parsed.length > 0 ? parsed : INITIAL_SAMPLE_LOGS;
-    } catch (e) {
+    } catch {
         return INITIAL_SAMPLE_LOGS;
     }
 }

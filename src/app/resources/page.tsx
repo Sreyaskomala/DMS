@@ -6,8 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
-    Download, FileText, Smartphone, Printer, ExternalLink,
-    CreditCard, CheckCircle2, AlertTriangle, ShieldCheck, Heart, Sparkles, User
+    Download, Printer, ExternalLink,
+    CreditCard, CheckCircle2
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
@@ -67,7 +67,7 @@ const RESOURCES: ResourceDoc[] = [
         category: "Clinical Checklists",
         pages: "2 Page PDF",
         content: [
-            "Doctor's Medical Certificate template declaring insulin syringes, lancets, and CGM sensors.",
+            "Doctor\u2019s Medical Certificate template declaring insulin syringes, lancets, and CGM sensors.",
             "Airport security guide: Request hand inspection for insulin pumps & CGM transmitters (do not pass through X-Ray/CT).",
             "Emergency Hypo Kit packing list: Glucose tablets, juice packs, Glucagon kit."
         ]
@@ -96,11 +96,11 @@ export default function ResourcesPage() {
             {/* Header */}
             <header className="bg-[#003E7E] text-white py-16">
                 <div className="container px-6 text-center max-w-3xl mx-auto space-y-4">
-                    <Badge className="bg-[#009CDF] text-white border-none font-bold">
-                        FREE CLINICAL DOWNLOADS & TOOLS
+                    <Badge className="bg-[#009CDF] text-white border-none font-bold text-xs uppercase tracking-wider">
+                        FREE CLINICAL DOWNLOADS &amp; TOOLS
                     </Badge>
-                    <h1 className="text-4xl sm:text-5xl font-black">Downloads, Logs & Medical Tools</h1>
-                    <p className="text-blue-100 text-lg leading-relaxed font-medium">
+                    <h1 className="text-4xl sm:text-5xl font-black">Downloads, Logs &amp; Medical Tools</h1>
+                    <p className="text-blue-100 text-base leading-relaxed font-medium">
                         Printable daily tracking sheets, Indian carb exchange cheat sheets, and emergency medical identification generators.
                     </p>
                 </div>
@@ -122,7 +122,7 @@ export default function ResourcesPage() {
                         </div>
                         <Button
                             type="button"
-                            className="bg-[#E31C79] hover:bg-[#c21565] text-white font-bold rounded-xl h-11 px-6 shadow-md"
+                            className="bg-[#E31C79] hover:bg-[#c21565] text-white font-bold rounded-xl h-11 px-6 shadow-md text-xs"
                             onClick={handlePrintIdCard}
                         >
                             <Printer className="h-4 w-4 mr-2" /> Print / Save Wallet Card
@@ -131,35 +131,35 @@ export default function ResourcesPage() {
 
                     <div className="grid lg:grid-cols-2 gap-8 items-start">
                         {/* Input Fields */}
-                        <div className="space-y-4 bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                            <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Your Medical Information</h3>
+                        <div className="space-y-4 bg-slate-50 p-6 rounded-2xl border border-slate-200 text-xs">
+                            <h3 className="font-bold text-slate-800 uppercase tracking-wider">Your Medical Information</h3>
                             <div className="space-y-3">
                                 <div>
-                                    <label className="text-xs font-bold text-slate-600 block mb-1">Full Name</label>
-                                    <Input value={idName} onChange={(e) => setIdName(e.target.value)} className="bg-white font-semibold" />
+                                    <label className="font-bold text-slate-600 block mb-1">Full Name</label>
+                                    <Input value={idName} onChange={(e) => setIdName(e.target.value)} className="bg-white font-semibold h-9 text-xs" />
                                 </div>
                                 <div>
-                                    <label className="text-xs font-bold text-slate-600 block mb-1">Medical Condition</label>
-                                    <Input value={idCondition} onChange={(e) => setIdCondition(e.target.value)} className="bg-white" />
+                                    <label className="font-bold text-slate-600 block mb-1">Medical Condition</label>
+                                    <Input value={idCondition} onChange={(e) => setIdCondition(e.target.value)} className="bg-white h-9 text-xs" />
                                 </div>
                                 <div>
-                                    <label className="text-xs font-bold text-slate-600 block mb-1">Insulin & Medication Regimen</label>
-                                    <Input value={idInsulin} onChange={(e) => setIdInsulin(e.target.value)} className="bg-white" />
+                                    <label className="font-bold text-slate-600 block mb-1">Insulin &amp; Medication Regimen</label>
+                                    <Input value={idInsulin} onChange={(e) => setIdInsulin(e.target.value)} className="bg-white h-9 text-xs" />
                                 </div>
                                 <div>
-                                    <label className="text-xs font-bold text-slate-600 block mb-1">Emergency Contact Phone</label>
-                                    <Input value={idEmergencyContact} onChange={(e) => setIdEmergencyContact(e.target.value)} className="bg-white font-semibold text-[#003E7E]" />
+                                    <label className="font-bold text-slate-600 block mb-1">Emergency Contact Phone</label>
+                                    <Input value={idEmergencyContact} onChange={(e) => setIdEmergencyContact(e.target.value)} className="bg-white font-semibold text-[#003E7E] h-9 text-xs" />
                                 </div>
                                 <div>
-                                    <label className="text-xs font-bold text-slate-600 block mb-1">Known Allergies / Hospital Notes</label>
-                                    <Input value={idAllergies} onChange={(e) => setIdAllergies(e.target.value)} className="bg-white" />
+                                    <label className="font-bold text-slate-600 block mb-1">Known Allergies / Hospital Notes</label>
+                                    <Input value={idAllergies} onChange={(e) => setIdAllergies(e.target.value)} className="bg-white h-9 text-xs" />
                                 </div>
                             </div>
                         </div>
 
                         {/* Live Printable Wallet Card Preview */}
                         <div className="space-y-3">
-                            <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Live Wallet Card Preview (Front & Back)</h3>
+                            <h3 className="font-bold text-slate-800 text-xs uppercase tracking-wider">Live Wallet Card Preview (Front &amp; Back)</h3>
                             <div className="p-6 rounded-3xl bg-gradient-to-br from-[#003E7E] to-[#002244] text-white shadow-2xl border-4 border-red-500 relative overflow-hidden space-y-4">
                                 <div className="flex justify-between items-start">
                                     <div className="flex items-center gap-2">
@@ -207,8 +207,8 @@ export default function ResourcesPage() {
                 {/* 2. PRINTABLE RESOURCES & GUIDES */}
                 <section className="space-y-8">
                     <div>
-                        <h2 className="text-3xl font-black text-[#003E7E]">Downloadable Clinical Tools & Templates</h2>
-                        <p className="text-slate-600 text-sm">Free to download, print, and share with your healthcare providers.</p>
+                        <h2 className="text-2xl sm:text-3xl font-black text-[#003E7E]">Downloadable Clinical Tools &amp; Templates</h2>
+                        <p className="text-slate-600 text-xs sm:text-sm">Free to download, print, and share with your healthcare providers.</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
@@ -220,22 +220,22 @@ export default function ResourcesPage() {
                                         <span className="text-xs font-semibold text-slate-500">{doc.pages}</span>
                                     </div>
                                     <CardTitle className="text-xl font-bold text-[#003E7E] mt-3">{doc.title}</CardTitle>
-                                    <CardDescription className="text-slate-600 text-sm mt-1">{doc.description}</CardDescription>
+                                    <CardDescription className="text-slate-600 text-xs mt-1">{doc.description}</CardDescription>
                                 </CardHeader>
                                 <CardContent className="p-6 space-y-4 flex-1 flex flex-col justify-between">
                                     <ul className="space-y-2 text-xs text-slate-600">
                                         {doc.content.map((point, i) => (
                                             <li key={i} className="flex items-start gap-2">
-                                                <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                                                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                                                 <span>{point}</span>
                                             </li>
                                         ))}
                                     </ul>
                                     <Button
                                         onClick={() => handleDownloadDoc(doc)}
-                                        className="w-full bg-[#003E7E] hover:bg-[#002a5e] font-bold text-xs h-11 rounded-xl"
+                                        className="w-full bg-[#003E7E] hover:bg-[#002a5e] font-bold text-xs h-10 rounded-xl"
                                     >
-                                        <Download className="h-4 w-4 mr-2" /> View & Print Document
+                                        <Download className="h-4 w-4 mr-2" /> View &amp; Print Document
                                     </Button>
                                 </CardContent>
                             </Card>
@@ -246,15 +246,15 @@ export default function ResourcesPage() {
                 {/* 3. QUICK LINK TO CLINICAL CALCULATORS */}
                 <section className="bg-gradient-to-r from-[#003E7E] to-[#005bb7] text-white p-8 sm:p-12 rounded-3xl shadow-2xl flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="space-y-3 max-w-xl">
-                        <Badge className="bg-[#E31C79] text-white border-none font-bold">DIGITAL HEALTH SUITE</Badge>
-                        <h2 className="text-3xl sm:text-4xl font-black">Interactive Insulin & Carb Calculator</h2>
-                        <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
-                            Need to calculate an instant insulin bolus for your meal plate or find the carb count of 40+ Indian dishes? Try our interactive clinical calculator.
+                        <Badge className="bg-[#E31C79] text-white border-none font-bold text-xs">DIGITAL HEALTH SUITE</Badge>
+                        <h2 className="text-3xl sm:text-4xl font-black">Interactive Clinical Vitals &amp; Analytics</h2>
+                        <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
+                            Log daily blood glucose, insulin titration, and view Time-in-Range (TIR) glycemic charts.
                         </p>
                     </div>
-                    <Button size="lg" className="bg-[#E31C79] hover:bg-[#c21565] text-white font-bold rounded-full h-14 px-8 shadow-xl shrink-0" asChild>
+                    <Button size="lg" className="bg-[#E31C79] hover:bg-[#c21565] text-white font-bold rounded-2xl h-12 px-8 shadow-xl shrink-0 text-xs" asChild>
                         <Link href="/dashboard/analytics">
-                            Launch Calculator & Analytics <ExternalLink className="ml-2 h-5 w-5" />
+                            Launch Analytics &amp; Reports <ExternalLink className="ml-2 h-4 w-4" />
                         </Link>
                     </Button>
                 </section>
@@ -273,17 +273,17 @@ export default function ResourcesPage() {
                                 <DialogTitle className="text-2xl font-black text-[#003E7E]">
                                     {selectedDoc.title}
                                 </DialogTitle>
-                                <DialogDescription className="text-slate-600">
+                                <DialogDescription className="text-slate-600 text-xs">
                                     {selectedDoc.description}
                                 </DialogDescription>
                             </DialogHeader>
 
-                            <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-4">
-                                <h4 className="font-bold text-slate-800 text-sm uppercase">Document Contents & Guidelines</h4>
-                                <ul className="space-y-3 text-sm text-slate-700">
+                            <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-4 text-xs">
+                                <h4 className="font-bold text-slate-800 uppercase">Document Contents &amp; Guidelines</h4>
+                                <ul className="space-y-3 text-slate-700">
                                     {selectedDoc.content.map((c, i) => (
                                         <li key={i} className="flex items-start gap-2">
-                                            <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0 mt-0.5" />
+                                            <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
                                             <span>{c}</span>
                                         </li>
                                     ))}
@@ -292,7 +292,7 @@ export default function ResourcesPage() {
 
                             <div className="flex gap-4">
                                 <Button
-                                    className="flex-1 bg-[#003E7E] hover:bg-[#002a5e] font-bold h-12 rounded-xl"
+                                    className="flex-1 bg-[#003E7E] hover:bg-[#002a5e] font-bold h-11 text-xs rounded-xl"
                                     onClick={() => {
                                         window.print();
                                         toast.success("Document sent to printer / PDF exporter");
@@ -302,7 +302,7 @@ export default function ResourcesPage() {
                                 </Button>
                                 <Button
                                     variant="outline"
-                                    className="flex-1 border-slate-300 font-bold h-12 rounded-xl"
+                                    className="flex-1 border-slate-300 font-bold h-11 text-xs rounded-xl"
                                     onClick={() => setSelectedDoc(null)}
                                 >
                                     Close

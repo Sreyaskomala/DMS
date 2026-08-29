@@ -1,9 +1,9 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { useForm, UseFormReturn } from "react-hook-form"
 import { format } from "date-fns"
-import { CalendarIcon, Loader2, Save, Sparkles, RefreshCw, Trash2, Download, CheckCircle2, History, ChevronRight } from "lucide-react"
+import { CalendarIcon, Loader2, Save, Sparkles, RefreshCw, Trash2, Download, History } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -259,7 +259,7 @@ export function LogForm() {
             } else {
                 toast.success("Health log saved locally in your secure health vault.");
             }
-        } catch (error) {
+        } catch {
             toast.success("Health log saved locally in your secure health vault.");
         } finally {
             setIsSubmitting(false);
@@ -770,8 +770,8 @@ export function LogForm() {
     );
 }
 
-function GlucoseField({ form, label, valName, timeName, defaultTime }: { form: any; label: string; valName: string; timeName: string; defaultTime: string }) {
-    const val = form.watch(valName);
+function GlucoseField({ form, label, valName, timeName, defaultTime }: { form: UseFormReturn<HealthLogValues>; label: string; valName: keyof HealthLogValues; timeName: keyof HealthLogValues; defaultTime: string }) {
+    const val = form.watch(valName) as string;
     const numVal = parseFloat(val);
 
     let badgeColor = "border-slate-200 bg-white";
@@ -794,7 +794,15 @@ function GlucoseField({ form, label, valName, timeName, defaultTime }: { form: a
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input placeholder="mg/dL" {...field} className="bg-white font-black text-slate-900 text-sm h-9" />
+                                <Input
+                                    placeholder="mg/dL"
+                                    name={field.name}
+                                    ref={field.ref}
+                                    onBlur={field.onBlur}
+                                    value={typeof field.value === "string" ? field.value : ""}
+                                    onChange={field.onChange}
+                                    className="bg-white font-black text-slate-900 text-sm h-9"
+                                />
                             </FormControl>
                         </FormItem>
                     )}
@@ -805,7 +813,16 @@ function GlucoseField({ form, label, valName, timeName, defaultTime }: { form: a
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input type="time" defaultValue={defaultTime} {...field} className="bg-white text-xs text-slate-500 h-8" />
+                                <Input
+                                    type="time"
+                                    defaultValue={defaultTime}
+                                    name={field.name}
+                                    ref={field.ref}
+                                    onBlur={field.onBlur}
+                                    value={typeof field.value === "string" ? field.value : defaultTime}
+                                    onChange={field.onChange}
+                                    className="bg-white text-xs text-slate-500 h-8"
+                                />
                             </FormControl>
                         </FormItem>
                     )}
@@ -815,7 +832,7 @@ function GlucoseField({ form, label, valName, timeName, defaultTime }: { form: a
     );
 }
 
-function MealSection({ form, label, timeName, foodName, defaultTime, placeholder }: { form: any; label: string; timeName: string; foodName: string; defaultTime: string; placeholder: string }) {
+function MealSection({ form, label, timeName, foodName, defaultTime, placeholder }: { form: UseFormReturn<HealthLogValues>; label: string; timeName: keyof HealthLogValues; foodName: keyof HealthLogValues; defaultTime: string; placeholder: string }) {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-3 items-start bg-slate-50 p-4 rounded-xl border border-slate-200">
             <FormField
@@ -824,7 +841,18 @@ function MealSection({ form, label, timeName, foodName, defaultTime, placeholder
                 render={({ field }) => (
                     <FormItem>
                         <FormLabel className="text-xs font-bold text-slate-700">{label} Time</FormLabel>
-                        <FormControl><Input type="time" defaultValue={defaultTime} {...field} className="bg-white" /></FormControl>
+                        <FormControl>
+                            <Input
+                                type="time"
+                                defaultValue={defaultTime}
+                                name={field.name}
+                                ref={field.ref}
+                                onBlur={field.onBlur}
+                                value={typeof field.value === "string" ? field.value : defaultTime}
+                                onChange={field.onChange}
+                                className="bg-white"
+                            />
+                        </FormControl>
                     </FormItem>
                 )}
             />
@@ -833,8 +861,18 @@ function MealSection({ form, label, timeName, foodName, defaultTime, placeholder
                 name={foodName}
                 render={({ field }) => (
                     <FormItem>
-                        <FormLabel className="text-xs font-bold text-slate-700">{label} Description & Indian Food Items</FormLabel>
-                        <FormControl><Input placeholder={placeholder} {...field} className="bg-white" /></FormControl>
+                        <FormLabel className="text-xs font-bold text-slate-700">{label} Description &amp; Indian Food Items</FormLabel>
+                        <FormControl>
+                            <Input
+                                placeholder={placeholder}
+                                name={field.name}
+                                ref={field.ref}
+                                onBlur={field.onBlur}
+                                value={typeof field.value === "string" ? field.value : ""}
+                                onChange={field.onChange}
+                                className="bg-white"
+                            />
+                        </FormControl>
                     </FormItem>
                 )}
             />

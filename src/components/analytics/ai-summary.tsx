@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Sparkles, Loader2, CheckCircle2, AlertCircle, Info, ShieldCheck, RefreshCw } from "lucide-react"
+import { Sparkles, Loader2, CheckCircle2, AlertCircle, Info, ShieldCheck } from "lucide-react"
 import { generateRuleBasedInsights, GlucoseReadingPoint, HealthLogRow } from "@/lib/demo-data"
 
 interface AISummaryProps {

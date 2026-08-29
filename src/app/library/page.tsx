@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
-    Search, BookOpen, Clock, Tag, ChevronRight, Bookmark,
-    CheckCircle2, Share2, ArrowLeft, Heart, Sparkles, ShieldCheck
+    Search, BookOpen, Clock, ChevronRight, Bookmark,
+    CheckCircle2, Share2, Sparkles, ShieldCheck
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
@@ -101,7 +101,7 @@ const ARTICLES: Article[] = [
         reviewDate: "Jan 2026",
         keyTakeaways: [
             "Never check insulin or CGM sensors in checked baggage (cargo hold freezes).",
-            "Carry a Doctor's Travel Certificate stating the medical necessity of carrying needles & liquids.",
+            "Carry a Doctor&apos;s Travel Certificate stating the medical necessity of carrying needles & liquids.",
             "CGMs and insulin pumps should NOT go through full-body X-ray/CT scanners; request manual pat-down."
         ],
         content: [

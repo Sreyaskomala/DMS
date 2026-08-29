@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-    Calculator, Utensils, Activity, AlertTriangle, CheckCircle2,
-    Info, Search, Plus, Trash2, ShieldAlert, Sparkles
+    Calculator, Utensils, Activity, AlertTriangle,
+    Search, Plus, Trash2, ShieldAlert, Sparkles
 } from "lucide-react";
 import { INDIAN_FOOD_DATABASE, IndianFoodItem, calculateInsulinBolus } from "@/lib/clinical-tools";
 
@@ -31,7 +31,6 @@ export function ClinicalCalculator() {
 
     // HbA1c Converter states
     const [inputA1c, setInputA1c] = useState<number>(6.8);
-    const [inputAvgGlucose, setInputAvgGlucose] = useState<number>(148);
 
     // Calculation result
     const bolusResult = calculateInsulinBolus({
@@ -363,7 +362,7 @@ export function ClinicalCalculator() {
                                                     <span className="text-slate-500">{food.calories} kcal</span>
                                                 </div>
                                                 <p className="text-[11px] text-slate-600 italic line-clamp-2 bg-slate-50 p-2 rounded-lg mb-3">
-                                                    "{food.tips}"
+                                                    &ldquo;{food.tips}&rdquo;
                                                 </p>
                                             </div>
 

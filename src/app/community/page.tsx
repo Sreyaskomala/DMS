@@ -1,13 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-    MessageCircle, ThumbsUp, User, Globe, MessageSquare,
-    Search, Plus, ShieldCheck, CheckCircle2, Share2, Send, Sparkles
+    MessageCircle, ThumbsUp,
+    Search, Plus, ShieldCheck, CheckCircle2, Send
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { toast } from "sonner";
@@ -90,7 +90,22 @@ const INITIAL_POSTS: ForumPost[] = [
 const COMMUNITY_STORAGE_KEY = "insulin_inside_community_posts";
 
 export default function CommunityPage() {
-    const [posts, setPosts] = useState<ForumPost[]>(INITIAL_POSTS);
+    const [posts, setPosts] = useState<ForumPost[]>(() => {
+        if (typeof window !== "undefined") {
+            const stored = localStorage.getItem(COMMUNITY_STORAGE_KEY);
+            if (stored) {
+                try {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        return parsed;
+                    }
+                } catch {
+                    return INITIAL_POSTS;
+                }
+            }
+        }
+        return INITIAL_POSTS;
+    });
     const [selectedTopic, setSelectedTopic] = useState<string>("All Discussions");
     const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -104,22 +119,6 @@ export default function CommunityPage() {
     // Thread View state
     const [activePost, setActivePost] = useState<ForumPost | null>(null);
     const [replyText, setReplyText] = useState("");
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            const stored = localStorage.getItem(COMMUNITY_STORAGE_KEY);
-            if (stored) {
-                try {
-                    const parsed = JSON.parse(stored);
-                    if (Array.isArray(parsed) && parsed.length > 0) {
-                        setPosts(parsed);
-                    }
-                } catch (e) {
-                    setPosts(INITIAL_POSTS);
-                }
-            }
-        }
-    }, []);
 
     const savePosts = (newPosts: ForumPost[]) => {
         setPosts(newPosts);

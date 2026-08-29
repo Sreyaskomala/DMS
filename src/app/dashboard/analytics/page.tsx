@@ -20,13 +20,9 @@ import { format } from "date-fns"
 import { toast } from "sonner"
 
 export default function AnalyticsPage() {
-    const [allLogs, setAllLogs] = useState<HealthLogRow[]>([]);
+    const [allLogs] = useState<HealthLogRow[]>(() => getStoredLogs());
     const [dateFilter, setDateFilter] = useState<"7" | "14" | "30" | "all">("14");
     const [isPrinting, setIsPrinting] = useState(false);
-
-    useEffect(() => {
-        setAllLogs(getStoredLogs());
-    }, []);
 
     // Filter logs based on date range
     const filteredLogs = allLogs.slice(0, dateFilter === "7" ? 7 : dateFilter === "14" ? 14 : dateFilter === "30" ? 30 : allLogs.length);

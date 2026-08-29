@@ -1,11 +1,12 @@
-import { withAuth } from "next-auth/middleware"
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-export default withAuth({
-    pages: {
-        signIn: "/api/auth/signin",
-    },
-})
+export function middleware() {
+    // Allow public and guest navigation seamlessly
+    return NextResponse.next();
+}
 
 export const config = {
-    matcher: ["/dashboard/:path*"],
-}
+    matcher: ["/dashboard/:path*", "/marketplace/:path*", "/pharmacy-portal/:path*"],
+};
+
