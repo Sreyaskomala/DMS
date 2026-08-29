@@ -3,9 +3,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
-    Activity, Store, ShieldCheck, Heart, Users,
-    CheckCircle2, ArrowUpRight, Sparkles, Building2,
-    Lock, Snowflake, AlertCircle
+    Store, ShieldCheck, Heart,
+    Lock, Snowflake
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
@@ -20,15 +19,15 @@ export default function AboutPage() {
                     </Badge>
                     <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
                         Empowering Diabetes Warriors <br />
-                        <span className="text-cyan-300">&amp; Local Neighbourhood Pharmacies</span>
+                        <span className="text-cyan-300">&amp; Supporting Neighbourhood Pharmacies</span>
                     </h1>
                     <p className="text-base sm:text-lg text-blue-100 leading-relaxed font-medium">
-                        Insulin Inside is building India&apos;s most transparent diabetes care and local medicine access platform — making chronic healthcare affordable while strengthening neighbourhood pharmacies.
+                        Insulin Inside is building India&apos;s most helpful diabetes companion — empowering patients with daily health tracking while supporting local pharmacies with modern digital tools to serve their communities.
                     </p>
                 </div>
             </section>
 
-            {/* THE DUAL CHALLENGE WE SOLVE */}
+            {/* OUR PURPOSE */}
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl space-y-12">
                     <div className="text-center space-y-2">
@@ -41,9 +40,9 @@ export default function AboutPage() {
                             <div className="w-12 h-12 bg-red-100 text-red-700 rounded-2xl flex items-center justify-center font-black">
                                 <Heart className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900">1. Making Chronic Diabetes Care Affordable</h3>
+                            <h3 className="text-xl font-bold text-slate-900">1. Accessible &amp; Transparent Diabetes Care</h3>
                             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                Diabetes is a lifelong condition requiring continuous therapy. Indian families often face steep out-of-pocket costs for insulins, oral medications, and test supplies. We help bring costs down by 20% to 80% by connecting patients directly with trusted neighbourhood chemists and affordable Pradhan Mantri Jan Aushadhi generic alternatives.
+                                Diabetes management requires daily commitment and ongoing medical care. We make it simple for patients to track glucose vitals, understand carbohydrate exchanges, connect with trusted local chemists for temperature-controlled medicines, and explore affordable options including Pradhan Mantri Jan Aushadhi generic alternatives.
                             </p>
                         </div>
 
@@ -51,9 +50,9 @@ export default function AboutPage() {
                             <div className="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center font-black">
                                 <Store className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900">2. Empowering Independent Local Chemists</h3>
+                            <h3 className="text-xl font-bold text-slate-900">2. Supporting Neighbourhood Pharmacies</h3>
                             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                Independent retail chemists are the backbone of healthcare in every Indian locality. We empower verified local pharmacies with a digital discovery storefront, real-time patient reservation requests, and local demand intelligence so they can thrive, retain their loyal community, and deliver exceptional personal care.
+                                Local retail chemists are the heart of healthcare in every Indian community. We support neighbourhood pharmacies with digital discovery, convenient reservation management, and local demand insights so they can better serve patients and deliver timely, personalized care right in their neighbourhoods.
                             </p>
                         </div>
                     </div>

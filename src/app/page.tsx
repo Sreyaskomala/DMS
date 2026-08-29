@@ -22,7 +22,7 @@ export default function Home() {
                     <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
                         <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span><strong>Hyderabad Pilot Live:</strong> Empowering neighbourhood chemists &amp; bringing down chronic diabetes medicine costs.</span>
+                            <span><strong>Hyderabad Pilot Live:</strong> Supporting neighbourhood pharmacies &amp; helping patients access trusted diabetes care.</span>
                         </div>
                         <div className="flex items-center gap-3 font-bold text-blue-200">
                             <Link href="/pharmacy-portal" className="text-white hover:text-[#009CDF] underline">
