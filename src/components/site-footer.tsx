@@ -41,7 +41,7 @@ export function SiteFooter() {
                             <span className="text-xl font-black text-white tracking-tight">Insulin<span className="text-[#009CDF]">Inside</span></span>
                         </div>
                         <p className="leading-relaxed">
-                            Insulin Inside is India&apos;s diabetes management companion and local pharmacy access platform. Launching with a controlled pilot in Hyderabad, Telangana, we empower independent retail chemists and help patients find verified, cold-chain assured medicines at transparent prices.
+                            Insulin Inside is India&apos;s biggest diabetes platform and local pharmacy access network. Supporting independent retail chemists across the country and helping patients find verified, cold-chain assured medicines at transparent neighbourhood prices.
                         </p>
                         <div className="flex items-center gap-2 text-emerald-400 font-semibold text-[11px] pt-1">
                             <ShieldCheck className="h-4 w-4" /> Partner pharmacies verified via Telangana DCA ODLS
@@ -52,7 +52,7 @@ export function SiteFooter() {
                         <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-xs">For Patients</h4>
                         <ul className="space-y-2.5">
                             <li><Link href="/dashboard" className="hover:text-white transition-colors">Diabetes Daily Tracker</Link></li>
-                            <li><Link href="/marketplace" className="hover:text-white transition-colors">Find Medicine in Hyderabad</Link></li>
+                            <li><Link href="/marketplace" className="hover:text-white transition-colors">Find Medicine Nearby</Link></li>
                             <li><Link href="/marketplace" className="hover:text-white transition-colors">Jan Aushadhi Generics</Link></li>
                             <li><Link href="/resources" className="hover:text-white transition-colors">Doctor Appointment Checklist</Link></li>
                             <li><Link href="/community" className="hover:text-white transition-colors">Peer Support Community</Link></li>
@@ -63,7 +63,7 @@ export function SiteFooter() {
                         <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-xs">For Chemists</h4>
                         <ul className="space-y-2.5">
                             <li><Link href="/pharmacy-portal" className="hover:text-white transition-colors">Chemist Partner Portal</Link></li>
-                            <li><Link href="/pharmacy-portal" className="hover:text-white transition-colors">Join Hyderabad Network</Link></li>
+                            <li><Link href="/pharmacy-portal" className="hover:text-white transition-colors">Join Partner Network</Link></li>
                             <li><Link href="/pharmacy-portal" className="hover:text-white transition-colors">Local Demand Radar</Link></li>
                             <li><Link href="/pharmacy-portal" className="hover:text-white transition-colors">Cold-Chain Guidelines</Link></li>
                             <li><Link href="/contact" className="hover:text-white transition-colors">Chemist Onboarding Help</Link></li>
@@ -83,7 +83,7 @@ export function SiteFooter() {
                 </div>
 
                 <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-[11px] text-slate-500 gap-2">
-                    <p>© 2026 Insulin Inside. Hyderabad Pilot Edition. All Rights Reserved.</p>
+                    <p>© 2026 Insulin Inside. India&apos;s Biggest Diabetes Platform. All Rights Reserved.</p>
                     <p className="flex items-center gap-1">
                         Made for Indian Diabetes Warriors &amp; Local Chemists with <Heart className="h-3 w-3 text-red-500 fill-red-500" />
                     </p>

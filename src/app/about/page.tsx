@@ -15,14 +15,14 @@ export default function AboutPage() {
             <section className="bg-gradient-to-br from-[#003E7E] to-[#00254d] text-white py-16 sm:py-20 relative overflow-hidden">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl space-y-4">
                     <Badge className="bg-[#009CDF] text-white border-none px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
-                        Hyderabad Pilot 2026
+                        India&apos;s Biggest Diabetes Platform
                     </Badge>
                     <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
                         Empowering Diabetes Warriors <br />
-                        <span className="text-cyan-300">&amp; Supporting Neighbourhood Pharmacies</span>
+                        <span className="text-cyan-300">&amp; Supporting Neighbourhood Pharmacies Across India</span>
                     </h1>
                     <p className="text-base sm:text-lg text-blue-100 leading-relaxed font-medium">
-                        Insulin Inside is building India&apos;s most helpful diabetes companion — empowering patients with daily health tracking while supporting local pharmacies with modern digital tools to serve their communities.
+                        Insulin Inside is building India&apos;s biggest diabetes platform — empowering patients with daily health tracking while supporting local pharmacies with modern digital tools to serve their communities.
                     </p>
                 </div>
             </section>
@@ -101,16 +101,16 @@ export default function AboutPage() {
             {/* CALL TO ACTION */}
             <section className="py-16 bg-white text-center">
                 <div className="container mx-auto px-4 max-w-2xl space-y-6">
-                    <h2 className="text-3xl font-black text-[#003E7E]">Join the Movement in Hyderabad</h2>
+                    <h2 className="text-3xl font-black text-[#003E7E]">Join the Movement Across India</h2>
                     <p className="text-xs sm:text-sm text-slate-600">
-                        Whether you are a patient looking for reliable refills, a caregiver, or a local chemist wanting to join our pilot network, we welcome you.
+                        Whether you are a patient looking for reliable refills, a caregiver, or a local chemist wanting to join our growing network, we welcome you.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-3">
                         <Button asChild className="bg-[#003E7E] hover:bg-[#002a5e] text-white font-bold h-11 px-6 rounded-xl">
                             <Link href="/dashboard">Start Daily Health Tracking</Link>
                         </Button>
                         <Button asChild variant="outline" className="border-[#003E7E] text-[#003E7E] font-bold h-11 px-6 rounded-xl hover:bg-blue-50">
-                            <Link href="/pharmacy-portal">For Hyderabad Chemists</Link>
+                            <Link href="/pharmacy-portal">For Partner Chemists</Link>
                         </Button>
                     </div>
                 </div>

@@ -105,7 +105,7 @@ export default function PharmacyPortalPage() {
                                 </Badge>
                             </div>
                             <p className="text-[11px] text-blue-200">
-                                Hyderabad Local Pharmacy Network · Telangana DCA Compliant
+                                India&apos;s Largest Diabetes Chemist Network · Verified DCA Compliant
                             </p>
                         </div>
                     </div>
@@ -481,7 +481,7 @@ export default function PharmacyPortalPage() {
                         <div className="bg-gradient-to-r from-[#003E7E] to-[#00254d] text-white p-6 rounded-2xl shadow-lg space-y-2">
                             <div className="flex items-center gap-2">
                                 <TrendingUp className="h-6 w-6 text-amber-400" />
-                                <h3 className="text-xl font-bold">Hyderabad Diabetes Demand Radar</h3>
+                                <h3 className="text-xl font-bold">Local Diabetes Demand Radar</h3>
                             </div>
                             <p className="text-xs text-blue-200 max-w-2xl leading-relaxed">
                                 Real-time search intelligence from patients within a 5km radius of {selectedPharmacy.locality}. Stock up on these high-demand items to meet neighbourhood patient demand and grow your store footfall.
@@ -633,7 +633,7 @@ export default function PharmacyPortalPage() {
                         <div className="flex items-center gap-2">
                             <Store className="h-5 w-5 text-[#003E7E]" />
                             <DialogTitle className="text-xl font-bold text-[#003E7E]">
-                                Register Hyderabad Chemist Partner
+                                Register Chemist Partner
                             </DialogTitle>
                         </div>
                         <DialogDescription className="text-xs text-slate-500">
@@ -646,7 +646,7 @@ export default function PharmacyPortalPage() {
                             e.preventDefault();
                             setIsRegModalOpen(false);
                             toast.success("Pharmacy application submitted!", {
-                                description: "Our Hyderabad onboarding team will verify your DCA license and contact you within 24 hours."
+                                description: "Our chemist onboarding team will verify your DCA license and contact you within 24 hours."
                             });
                         }}
                         className="space-y-4 text-xs"
@@ -673,14 +673,14 @@ export default function PharmacyPortalPage() {
                                 <Input placeholder="TS/DCA/HYD/20/21-XXXXX" required className="h-9 text-xs" />
                             </div>
                             <div className="space-y-1">
-                                <label className="font-bold text-slate-700">Hyderabad Locality:</label>
+                                <label className="font-bold text-slate-700">Locality / Area:</label>
                                 <Input placeholder="e.g. Somajiguda / Begumpet" required className="h-9 text-xs" />
                             </div>
                         </div>
 
                         <div className="space-y-1">
                             <label className="font-bold text-slate-700">Full Store Address &amp; Pincode:</label>
-                            <Input placeholder="Shop No, Street, Landmark, Hyderabad 5000XX" required className="h-9 text-xs" />
+                            <Input placeholder="Shop No, Street, Landmark, City &amp; Pincode" required className="h-9 text-xs" />
                         </div>
 
                         <div className="grid grid-cols-2 gap-2">

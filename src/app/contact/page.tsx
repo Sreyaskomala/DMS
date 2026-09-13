@@ -21,7 +21,7 @@ export default function ContactPage() {
         setIsSubmitting(true);
         setTimeout(() => {
             setIsSubmitting(false);
-            toast.success("Thank you for reaching out! Our Hyderabad team will respond within 24 hours.");
+            toast.success("Thank you for reaching out! Our support team will respond within 24 hours.");
             setName("");
             setEmail("");
             setPhone("");
@@ -35,11 +35,11 @@ export default function ContactPage() {
             <header className="bg-[#003E7E] text-white py-16">
                 <div className="container px-6 text-center max-w-3xl mx-auto space-y-4">
                     <Badge className="bg-[#009CDF] text-white border-none font-bold text-xs uppercase tracking-wider">
-                        Hyderabad Operations &amp; Support
+                        National Operations &amp; Support
                     </Badge>
                     <h1 className="text-4xl sm:text-5xl font-black">Contact &amp; Grievance Redressal</h1>
                     <p className="text-blue-100 text-sm sm:text-base leading-relaxed font-medium">
-                        Patient inquiries, pharmacy partner onboarding in Hyderabad, and customer grievance desk.
+                        Patient inquiries, chemist partner onboarding, and customer grievance desk.
                     </p>
                 </div>
             </header>
@@ -51,7 +51,7 @@ export default function ContactPage() {
                         <div className="space-y-6">
                             <h2 className="text-3xl font-black">Let&apos;s Connect</h2>
                             <p className="text-blue-100 text-xs sm:text-sm leading-relaxed">
-                                Our patient coordinators and Hyderabad pharmacy relationship managers are here to assist you.
+                                Our patient coordinators and pharmacy relationship managers are here to assist you.
                             </p>
 
                             <div className="space-y-5 pt-2 text-xs">
@@ -60,7 +60,7 @@ export default function ContactPage() {
                                         <Store className="h-5 w-5 text-[#009CDF]" />
                                     </div>
                                     <div>
-                                        <span className="text-blue-200 block uppercase font-bold text-[10px]">Hyderabad Chemist Desk</span>
+                                        <span className="text-blue-200 block uppercase font-bold text-[10px]">Chemist Support Desk</span>
                                         <span className="font-bold text-sm">+91 98490 12345 (WhatsApp Available)</span>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                                         <MapPin className="h-5 w-5 text-[#009CDF]" />
                                     </div>
                                     <div>
-                                        <span className="text-blue-200 block uppercase font-bold text-[10px]">Hyderabad Pilot Office</span>
+                                        <span className="text-blue-200 block uppercase font-bold text-[10px]">Headquarters &amp; Operations</span>
                                         <span className="font-bold text-xs">Insulin Inside Healthcare, Road No. 12, Banjara Hills, Hyderabad, Telangana 500034</span>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@ export default function ContactPage() {
                                     className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-800"
                                 >
                                     <option value="Patient Support">Patient Refill &amp; Tracking Support</option>
-                                    <option value="Hyderabad Chemist Onboarding">Hyderabad Chemist Partner Onboarding</option>
+                                    <option value="Chemist Partner Onboarding">Chemist Partner Onboarding</option>
                                     <option value="Prescription Inquiry">Prescription Verification Query</option>
                                     <option value="Grievance">Grievance / Feedback</option>
                                 </select>

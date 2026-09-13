@@ -155,14 +155,14 @@ export default function DashboardPage() {
                             Clinical Analytics
                         </Link>
                         <Link href="/marketplace" className="hover:text-[#009CDF] pb-2 transition-colors">
-                            Hyderabad Chemist Network
+                            Chemist Partner Network
                         </Link>
                         <Link href="/community" className="hover:text-[#009CDF] pb-2 transition-colors">
                             Community
                         </Link>
                     </div>
                     <div className="text-slate-400 font-medium hidden sm:block">
-                        Indian Standard Time (IST) • Hyderabad
+                        Indian Standard Time (IST) • India
                     </div>
                 </div>
             </div>

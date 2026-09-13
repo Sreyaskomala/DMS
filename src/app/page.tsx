@@ -22,11 +22,11 @@ export default function Home() {
                     <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
                         <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span><strong>Hyderabad Pilot Live:</strong> Supporting neighbourhood pharmacies &amp; helping patients access trusted diabetes care.</span>
+                            <span><strong>India&apos;s Biggest Diabetes Platform:</strong> Supporting neighbourhood pharmacies &amp; helping patients access trusted diabetes care across India.</span>
                         </div>
                         <div className="flex items-center gap-3 font-bold text-blue-200">
                             <Link href="/pharmacy-portal" className="text-white hover:text-[#009CDF] underline">
-                                For Hyderabad Chemists →
+                                For Partner Chemists →
                             </Link>
                         </div>
                     </div>
@@ -41,7 +41,7 @@ export default function Home() {
                         <div className="lg:col-span-7 space-y-6">
                             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 text-[#003E7E] text-xs font-bold uppercase tracking-wider">
                                 <Sparkles className="w-3.5 h-3.5 text-[#009CDF]" />
-                                India&apos;s Diabetes Buddy &amp; Local Chemist Network
+                                India&apos;s Biggest Diabetes Platform
                             </div>
 
                             <h1 className="text-4xl sm:text-6xl font-extrabold text-[#003E7E] leading-[1.08] tracking-tight">
@@ -50,7 +50,7 @@ export default function Home() {
                             </h1>
 
                             <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
-                                Track glucose, insulin, and Indian meals effortlessly. Find genuine medicines from verified neighbourhood pharmacies across Hyderabad with 100% cold-chain assurance and transparent neighbourhood pricing.
+                                Track glucose, insulin, and Indian meals effortlessly. Find genuine medicines from verified neighbourhood pharmacies across India with 100% cold-chain assurance and transparent neighbourhood pricing.
                             </p>
 
                             {/* Hero Interactive Search Bar */}
@@ -84,7 +84,7 @@ export default function Home() {
                                 </Button>
                                 <Button size="lg" variant="outline" className="rounded-2xl border-2 border-[#003E7E] text-[#003E7E] font-bold hover:bg-blue-50 h-13 px-6 text-sm flex gap-2" asChild>
                                     <Link href="/marketplace">
-                                        <Store className="h-4 w-4" /> Hyderabad Chemist Network
+                                        <Store className="h-4 w-4" /> Chemist Partner Network
                                     </Link>
                                 </Button>
                             </div>
@@ -111,7 +111,7 @@ export default function Home() {
                                 <div className="flex items-center justify-between border-b pb-3">
                                     <div className="flex items-center gap-2">
                                         <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
-                                        <span className="text-xs font-bold text-slate-800">Hyderabad Live Refill Hub</span>
+                                        <span className="text-xs font-bold text-slate-800">Live Chemist Refill Hub</span>
                                     </div>
                                     <Badge className="bg-blue-50 text-[#003E7E] text-[10px] font-bold">
                                         8 Chemists Active
@@ -172,7 +172,7 @@ export default function Home() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                             {[
                                 { title: "Log Glucose & Vitals", subtitle: "Record FBS, PBS, BP & Weight", icon: <Activity className="h-6 w-6" />, href: "/dashboard", color: "bg-blue-50 text-[#003E7E]" },
-                                { title: "Find Medicine & Save", subtitle: "Live stock at Hyd chemists", icon: <Store className="h-6 w-6" />, href: "/marketplace", color: "bg-emerald-50 text-emerald-800" },
+                                { title: "Find Medicine & Save", subtitle: "Live stock at partner chemists", icon: <Store className="h-6 w-6" />, href: "/marketplace", color: "bg-emerald-50 text-emerald-800" },
                                 { title: "Doctor PDF Report", subtitle: "1-Click clinical summary", icon: <FileText className="h-6 w-6" />, href: "/dashboard", color: "bg-pink-50 text-[#E31C79]" },
                                 { title: "Indian Food Carb Guide", subtitle: "Roti, Rice, Dosa exchanges", icon: <BookOpen className="h-6 w-6" />, href: "/library", color: "bg-amber-50 text-amber-800" },
                             ].map((item, i) => (
@@ -233,7 +233,7 @@ export default function Home() {
                                 {
                                     icon: <Users className="h-6 w-6 text-amber-600" />,
                                     title: "4. Peer Community",
-                                    desc: "Moderated peer discussions for Type 1, Type 2, and Parents. Hyderabad local chapter for local support.",
+                                    desc: "Moderated peer discussions for Type 1, Type 2, and Parents. Connect with local chapters across India.",
                                     linkText: "Join Community",
                                     href: "/community"
                                 },
@@ -266,10 +266,10 @@ export default function Home() {
                                     Local Business Empowerment
                                 </Badge>
                                 <h2 className="text-2xl sm:text-3xl font-bold text-[#003E7E] mt-1">
-                                    Verified Hyderabad Chemist Network
+                                    Verified Chemist Partner Network
                                 </h2>
                                 <p className="text-xs sm:text-sm text-slate-500">
-                                    Empowering independent neighbourhood pharmacies with digital discovery and live demand intelligence.
+                                    Empowering independent neighbourhood pharmacies across India with digital discovery and live demand intelligence.
                                 </p>
                             </div>
                             <Button asChild variant="outline" className="border-[#003E7E] text-[#003E7E] font-bold text-xs">

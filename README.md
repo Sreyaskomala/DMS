@@ -1,6 +1,6 @@
-# 🩸 Insulin Inside (DMS) — Diabetes Buddy & Local Chemist Network
+# 🩸 Insulin Inside — India's Biggest Diabetes Platform & Local Chemist Network
 
-> **Empowering India's diabetes warriors with a daily management buddy while saving neighborhood pharmacy stores against corporate monopolies.**
+> **India's biggest diabetes platform — empowering diabetes warriors with a daily management buddy while saving neighborhood pharmacy stores against corporate monopolies.**
 
 ![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black?style=flat&logo=next.js)
 ![React](https://img.shields.io/badge/React-19.2.3-blue?style=flat&logo=react)

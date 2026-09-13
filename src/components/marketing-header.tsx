@@ -27,12 +27,12 @@ export function MarketingHeader() {
             <div className="bg-white border-b border-slate-200 py-2 hidden lg:block">
                 <div className="container mx-auto px-6 lg:px-8 flex justify-between items-center text-xs font-bold text-slate-600">
                     <div className="flex items-center gap-4 text-[11px] text-slate-500">
-                        <span className="flex items-center gap-1 text-emerald-700">
+                        <span className="flex items-center gap-1 text-emerald-700 font-bold">
                             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                            Hyderabad Pilot Active
+                            India&apos;s Biggest Diabetes Platform
                         </span>
                         <span>•</span>
-                        <span>Telangana DCA Verified Partner Network</span>
+                        <span>Verified Chemist &amp; DCA Compliant Network</span>
                     </div>
 
                     <div className="flex gap-6 uppercase tracking-tight items-center">
@@ -73,7 +73,7 @@ export function MarketingHeader() {
                         </div>
                         <div className="flex flex-col leading-none">
                             <span className="text-2xl font-black text-[#003E7E] tracking-tighter">Insulin<span className="text-[#009CDF]">Inside</span></span>
-                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-0.5">Diabetes Buddy &amp; Local Access</span>
+                            <span className="text-[10px] font-bold text-[#003E7E] uppercase tracking-wider mt-0.5">India&apos;s Biggest Diabetes Platform</span>
                         </div>
                     </Link>
 

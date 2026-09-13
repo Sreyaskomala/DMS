@@ -167,7 +167,7 @@ export default function MarketplacePage() {
                 <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
                     <div className="flex items-center gap-2">
                         <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span><strong>Hyderabad Pilot Active:</strong> Connecting patients with 8+ verified neighbourhood chemists across Banjara Hills, Madhapur, Secunderabad, Ameerpet & Koti.</span>
+                        <span><strong>India&apos;s Biggest Diabetes Platform · Live Chemist Network:</strong> Connecting patients with verified neighbourhood chemists with cold-chain assurance.</span>
                     </div>
                     <div className="flex items-center gap-3 font-bold text-blue-200">
                         <span>Telangana DCA Verified ✓</span>
@@ -418,7 +418,7 @@ export default function MarketplacePage() {
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                         <Store className="h-5 w-5 text-[#003E7E]" />
-                                        <CardTitle className="text-lg font-bold text-[#003E7E]">Hyderabad Partner Network</CardTitle>
+                                        <CardTitle className="text-lg font-bold text-[#003E7E]">Verified Partner Network</CardTitle>
                                     </div>
                                     <Badge className="bg-emerald-100 text-emerald-800 border-none text-[10px] font-bold">
                                         {HYDERABAD_PHARMACIES.length} Verified
@@ -485,7 +485,7 @@ export default function MarketplacePage() {
                         <div className="bg-gradient-to-br from-[#003E7E] to-[#00254d] text-white p-5 rounded-2xl shadow-lg space-y-3 text-xs">
                             <div className="flex items-center gap-2 font-bold text-sm text-blue-200">
                                 <Store className="h-5 w-5 text-amber-400" />
-                                Are you a Hyderabad Chemist?
+                                Are you a Retail Chemist?
                             </div>
                             <p className="text-blue-100 leading-relaxed">
                                 Join our network to receive direct digital reservation requests from diabetic patients in your locality and grow your independent pharmacy footfall.
@@ -546,7 +546,7 @@ export default function MarketplacePage() {
                             {/* Pharmacy Selection */}
                             <div className="space-y-1.5">
                                 <label className="font-bold text-slate-700 flex justify-between">
-                                    <span>Select Hyderabad Partner Pharmacy:</span>
+                                    <span>Select Partner Pharmacy:</span>
                                     <span className="text-emerald-600 font-semibold">Telangana DCA Licensed ✓</span>
                                 </label>
                                 <select
@@ -602,11 +602,11 @@ export default function MarketplacePage() {
 
                             {fulfilmentMode === "local_delivery" && (
                                 <div className="space-y-1">
-                                    <label className="font-bold text-slate-700">Delivery Address (Hyderabad area):</label>
+                                    <label className="font-bold text-slate-700">Delivery Address:</label>
                                     <Input
                                         value={deliveryAddress}
                                         onChange={(e) => setDeliveryAddress(e.target.value)}
-                                        placeholder="Flat/House No, Street, Locality, Hyderabad..."
+                                        placeholder="Flat/House No, Street, Locality, City..."
                                         className="text-xs h-9"
                                         required
                                     />
@@ -843,7 +843,7 @@ export default function MarketplacePage() {
                             </DialogTitle>
                         </div>
                         <DialogDescription className="text-xs text-slate-500">
-                            Our registered Hyderabad pharmacist will review your prescription, find the best prices across partner chemists, and contact you.
+                            Our registered pharmacist will review your prescription, find the best prices across partner chemists, and contact you.
                         </DialogDescription>
                     </DialogHeader>
 
@@ -855,7 +855,7 @@ export default function MarketplacePage() {
                         }
                         setIsDirectRxModalOpen(false);
                         toast.success("Prescription uploaded successfully!", {
-                            description: "A verified Hyderabad pharmacist will review and WhatsApp you in 15 minutes."
+                            description: "A verified partner pharmacist will review and WhatsApp you in 15 minutes."
                         });
                     }} className="space-y-4 text-xs">
                         <div className="border-2 border-dashed border-slate-300 hover:border-[#003E7E] p-6 rounded-2xl text-center bg-slate-50/50 cursor-pointer">
@@ -875,7 +875,7 @@ export default function MarketplacePage() {
                         </div>
 
                         <div className="space-y-1">
-                            <label className="font-bold text-slate-700">Preferred Hyderabad Area:</label>
+                            <label className="font-bold text-slate-700">Preferred Locality / Area:</label>
                             <select className="w-full p-2 bg-white border border-slate-300 rounded-lg text-xs font-medium">
                                 {localities.filter(l => l !== "All Localities").map(loc => (
                                     <option key={loc} value={loc}>{loc}</option>

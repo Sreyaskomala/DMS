@@ -10,8 +10,8 @@ import { SiteFooter } from "@/components/site-footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Insulin Inside | Diabetes Buddy & Local Chemist Network",
-  description: "India's diabetes management companion and local pharmacy access network for Hyderabad.",
+  title: "Insulin Inside | India's Biggest Diabetes Platform & Chemist Network",
+  description: "India's biggest diabetes platform — comprehensive diabetes companion, daily tracking, Indian meal guide, and verified local chemist access network.",
 };
 
 export default function RootLayout({
