@@ -355,7 +355,7 @@ export default function CommunityPage() {
 
             {/* CREATE TOPIC MODAL */}
             <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-                <DialogContent className="max-w-xl p-8 rounded-3xl">
+                <DialogContent className="max-h-[calc(100dvh-1.5rem)] max-w-xl overflow-y-auto rounded-3xl p-5 sm:p-8">
                     <DialogHeader>
                         <DialogTitle className="text-2xl font-black text-[#003E7E]">Start a New Discussion</DialogTitle>
                         <DialogDescription>
@@ -419,68 +419,89 @@ export default function CommunityPage() {
                 </DialogContent>
             </Dialog>
 
-            {/* THREAD DETAIL & REPLY MODAL */}
+            {/* THREAD DETAIL & REPLY MODAL: centered above navigation with one scrollable body */}
             <Dialog open={!!activePost} onOpenChange={(open) => !open && setActivePost(null)}>
-                <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto p-8 rounded-3xl">
+                <DialogContent
+                    className="flex w-[calc(100vw-1.5rem)] max-w-3xl flex-col gap-0 overflow-hidden rounded-3xl border border-slate-200 bg-white p-0 shadow-2xl"
+                    style={{ maxHeight: "calc(100dvh - 1.5rem)" }}
+                >
                     {activePost && (
-                        <div className="space-y-6">
-                            <DialogHeader>
-                                <div className="flex justify-between items-start mb-2">
+                        <>
+                            <DialogHeader className="shrink-0 gap-3 border-b border-slate-200 bg-white px-5 py-5 pr-12 text-left sm:px-8 sm:py-6">
+                                <div className="flex flex-wrap items-center justify-between gap-2">
                                     <Badge className="bg-[#003E7E] text-white">{activePost.topic}</Badge>
-                                    <span className="text-xs text-slate-400">{activePost.timeAgo}</span>
+                                    <span className="text-xs text-slate-500">{activePost.timeAgo}</span>
                                 </div>
-                                <DialogTitle className="text-2xl font-black text-[#003E7E] leading-tight">
+                                <DialogTitle className="break-words text-xl font-black leading-snug text-[#003E7E] sm:text-2xl">
                                     {activePost.title}
                                 </DialogTitle>
-                                <DialogDescription className="text-slate-600 text-sm font-semibold">
+                                <DialogDescription className="text-sm font-medium text-slate-600">
                                     Posted by {activePost.author}
                                 </DialogDescription>
                             </DialogHeader>
 
-                            <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-slate-800 text-sm leading-relaxed font-medium">
-                                {activePost.body}
-                            </div>
-
-                            {/* Responses Section */}
-                            <div className="space-y-4">
-                                <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2">
-                                    <MessageCircle className="h-4 w-4 text-[#009CDF]" />
-                                    Community Replies ({activePost.comments.length})
-                                </h4>
-
-                                <div className="space-y-3 max-h-[300px] overflow-y-auto pr-1">
-                                    {activePost.comments.map((comment, idx) => (
-                                        <div key={idx} className="p-4 bg-white rounded-2xl border border-slate-200 space-y-1 text-xs">
-                                            <div className="flex justify-between items-center">
-                                                <div className="flex items-center gap-2">
-                                                    <span className="font-bold text-slate-900">{comment.author}</span>
-                                                    {comment.role === "Doctor" && <Badge className="bg-green-100 text-green-800 text-[9px]">Verified Doctor</Badge>}
-                                                    {comment.role === "Educator" && <Badge className="bg-blue-100 text-blue-800 text-[9px]">Certified Educator</Badge>}
-                                                </div>
-                                                <span className="text-[10px] text-slate-400">{comment.time}</span>
-                                            </div>
-                                            <p className="text-slate-700 leading-relaxed font-medium pt-1">
-                                                {comment.text}
-                                            </p>
-                                        </div>
-                                    ))}
+                            <div
+                                className="min-h-0 flex-1 space-y-6 overflow-y-auto overscroll-contain px-5 py-5 sm:px-8 sm:py-6"
+                                role="region"
+                                aria-label="Discussion and replies"
+                                tabIndex={0}
+                            >
+                                <div className="whitespace-pre-wrap break-words rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium leading-relaxed text-slate-800 sm:p-5 sm:text-base">
+                                    {activePost.body}
                                 </div>
 
-                                {/* Add Reply Form */}
-                                <form onSubmit={handleAddReply} className="flex gap-2 pt-2">
-                                    <Input
-                                        placeholder="Write a supportive reply or experience..."
-                                        value={replyText}
-                                        onChange={(e) => setReplyText(e.target.value)}
-                                        className="h-12 bg-white"
-                                        required
-                                    />
-                                    <Button type="submit" className="bg-[#003E7E] hover:bg-[#002a5e] font-bold h-12 px-6 rounded-xl">
-                                        <Send className="h-4 w-4 mr-1" /> Reply
-                                    </Button>
-                                </form>
+                                <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-900">
+                                    Example community content, not verified clinical advice. Always discuss insulin dose or pump-setting changes with your diabetes care team.
+                                </div>
+
+                                <section aria-label="Community replies" className="space-y-4">
+                                    <h3 className="flex items-center gap-2 text-sm font-bold text-slate-900">
+                                        <MessageCircle className="h-4 w-4 shrink-0 text-[#009CDF]" />
+                                        Community Replies ({activePost.comments.length})
+                                    </h3>
+                                    {activePost.comments.length === 0 && (
+                                        <p className="rounded-xl bg-slate-50 p-4 text-sm text-slate-600">
+                                            No replies yet. You can add the first reply below.
+                                        </p>
+                                    )}
+                                    <div className="space-y-3">
+                                        {activePost.comments.map((comment, idx) => (
+                                            <article key={idx} className="space-y-2 rounded-2xl border border-slate-200 bg-white p-4">
+                                                <div className="flex flex-wrap items-start justify-between gap-2">
+                                                    <div className="flex flex-wrap items-center gap-2">
+                                                        <span className="break-words text-sm font-bold text-slate-900">{comment.author}</span>
+                                                        {comment.role === "Doctor" && <Badge className="bg-slate-100 text-slate-600 text-[10px]">Example doctor reply</Badge>}
+                                                        {comment.role === "Educator" && <Badge className="bg-slate-100 text-slate-600 text-[10px]">Example educator reply</Badge>}
+                                                    </div>
+                                                    <span className="shrink-0 text-xs text-slate-500">{comment.time}</span>
+                                                </div>
+                                                <p className="whitespace-pre-wrap break-words text-sm font-medium leading-relaxed text-slate-700">
+                                                    {comment.text}
+                                                </p>
+                                            </article>
+                                        ))}
+                                    </div>
+                                </section>
                             </div>
-                        </div>
+
+                            <form
+                                onSubmit={handleAddReply}
+                                className="flex shrink-0 flex-col gap-3 border-t border-slate-200 bg-white px-5 py-4 sm:flex-row sm:items-center sm:px-8"
+                            >
+                                <label htmlFor="community-thread-reply" className="sr-only">Your reply</label>
+                                <Input
+                                    id="community-thread-reply"
+                                    placeholder="Write a supportive reply..."
+                                    value={replyText}
+                                    onChange={(e) => setReplyText(e.target.value)}
+                                    className="h-11 min-w-0 flex-1 bg-white"
+                                    required
+                                />
+                                <Button type="submit" className="h-11 shrink-0 rounded-xl bg-[#003E7E] px-6 font-bold text-white hover:bg-[#002a5e]">
+                                    <Send className="mr-2 h-4 w-4" /> Reply
+                                </Button>
+                            </form>
+                        </>
                     )}
                 </DialogContent>
             </Dialog>
