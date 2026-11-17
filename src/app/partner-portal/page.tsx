@@ -1,0 +1,17 @@
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+type Application={id:string;legal_name:string;city:string;zone:string;status:string};
+export default function PartnerPortal(){
+ const [form,setForm]=useState({legal_name:"",city:"Hyderabad",zone:"",license_type:"md42",license_number:"",gstin:""}); const [items,setItems]=useState<Application[]>([]);const [message,setMessage]=useState("");const [busy,setBusy]=useState(false);
+ async function load(){try{const r=await fetch("/api/platform/partners");if(r.ok)setItems((await r.json()).applications||[]);}catch{}}
+ useEffect(()=>{void load()},[]);
+ async function submit(e:React.FormEvent){e.preventDefault();setBusy(true);setMessage("");try{const r=await fetch("/api/platform/partners",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(form)});const x=await r.json();if(!r.ok)throw Error(x.error||"Could not submit");setMessage("Application received for review. No sales or listings are enabled yet.");await load();}catch(e){setMessage(e instanceof Error?e.message:"Could not submit");}finally{setBusy(false);}}
+ return <main className="min-h-screen bg-[#F2F8FF] p-5 py-12"><div className="mx-auto max-w-5xl"><p className="text-xs font-bold uppercase tracking-widest text-[#008B65]">Independent pharmacy network</p><h1 className="mt-3 text-4xl font-black text-[#003E7E]">Partner with Insulin Inside</h1><p className="mt-3 max-w-2xl text-slate-600">Submit your medical-device or pharmacy license details for manual review. Application submission is not proof of authorization or regulatory approval.</p>
+ <div className="mt-8 grid gap-6 lg:grid-cols-2"><form onSubmit={submit} className="space-y-4 rounded-3xl bg-white p-6 shadow-sm"><h2 className="text-xl font-bold text-[#003E7E]">Partner application</h2>
+ {([["legal_name","Legal business name"],["city","City"],["zone","Locality / Zone"],["license_number","License / MD-42 number"],["gstin","GSTIN"]] as const).map(([key,label])=><label className="block text-sm font-bold" key={key}>{label}<input required className="mt-1 w-full rounded-xl border p-3 font-normal" value={form[key]} onChange={e=>setForm(v=>({...v,[key]:e.target.value}))}/></label>)}
+ <label className="block text-sm font-bold">License type<select className="mt-1 w-full rounded-xl border p-3" value={form.license_type} onChange={e=>setForm(v=>({...v,license_type:e.target.value}))}><option value="md42">Form MD-42</option><option value="drug_license">Retail Drug Sale License</option></select></label>
+ <button disabled={busy} className="w-full rounded-xl bg-[#003E7E] p-3 font-bold text-white disabled:opacity-50">Submit for review</button><p role="status" className="text-sm text-slate-600">{message}</p>
+ </form><section className="rounded-3xl bg-white p-6 shadow-sm"><h2 className="text-xl font-bold text-[#003E7E]">My applications</h2>{items.length===0?<p className="mt-5 text-slate-600">No applications visible. <Link href="/login" className="underline">Sign in</Link> to access your submissions.</p>:<ul className="mt-4 divide-y">{items.map(a=><li key={a.id} className="py-4"><b>{a.legal_name}</b><p className="text-sm text-slate-500">{a.zone}, {a.city} · {a.status}</p></li>)}</ul>}<p className="mt-8 text-xs text-slate-500">Partner self-service inventory, batch scanning and orders remain behind verification and payment integration gates.</p></section></div>
+ </div></main>;
+}
